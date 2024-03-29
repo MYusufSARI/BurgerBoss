@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class GameInput : MonoBehaviour
 {
+    private void Awake()
+    {
+        PlayerInputActions playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+
+    }
+
     public Vector2 GetMovementVectorNormalized()
     {
         Vector2 inputVector = new Vector2(0, 0);

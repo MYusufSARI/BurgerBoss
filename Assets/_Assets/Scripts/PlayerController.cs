@@ -22,9 +22,12 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
         float playerSize = 0.7f;
-        Physics.Raycast(transform.position, moveDir, playerSize);
-        transform.position += moveDir * moveSpeed * Time.deltaTime;
+        bool canMove = !Physics.Raycast(transform.position, moveDir, playerSize);
 
+        if (canMove)
+        {
+            transform.position += moveDir * moveSpeed * Time.deltaTime;
+        }
         isWalking = moveDir != Vector3.zero;
 
         transform.forward = Vector3.Slerp(transform.forward, moveDir, rotateSpeed * Time.deltaTime);

@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        float playerSize = 0.7f;
+        Physics.Raycast(transform.position, moveDir, playerSize);
         transform.position += moveDir * moveSpeed * Time.deltaTime;
 
         isWalking = moveDir != Vector3.zero;

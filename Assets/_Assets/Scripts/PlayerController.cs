@@ -24,11 +24,43 @@ public class PlayerController : MonoBehaviour
         float playerRadius = 0.7f;
         float playerHeight = 2f;
         float moveDistance = moveSpeed * Time.deltaTime;
-        bool canMove = !Physics.CapsuleCast(transform.position,transform.position + Vector3.up *playerHeight , playerRadius, moveDir, moveDistance);
+        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
 
-        if (canMove)
+        if (!canMove)
         {
-            transform.position += moveDir * moveDistance;
+            //Cannot move toward moveDir
+
+            //Attempt only X movement
+            Vector3 moveDirX = new Vector3(moveDir.x, 0, 0);
+            canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
+
+
+
+            if (canMove)
+            {
+                //Can only on the X
+                moveDir = moveDirX;
+            }
+
+            else
+            {
+                // Cannot move only on the X
+
+                //Attempt only Z movement
+                Vector3 moveDirZ = new Vector3(0, 0, moveDir.z);
+                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
+
+                if (canMove)
+                {
+                    //Can move only on the Z
+                    moveDir = moveDirZ;
+                }
+
+                else
+                {
+                    //Cannot move any direction
+                }
+            }
         }
         isWalking = moveDir != Vector3.zero;
 

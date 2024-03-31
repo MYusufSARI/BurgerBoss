@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
                  
                 else
                 {
+                    //Cannot move any direction
                 }
             }
         }

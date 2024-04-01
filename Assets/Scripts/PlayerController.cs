@@ -41,11 +41,21 @@ public class PlayerController : MonoBehaviour
         RaycastHit raycastHit;
         if (Physics.Raycast(transform.position, lastInteractDir, out raycastHit, interactDistance))
         {
-            Debug.Log(raycastHit.transform);
-        }
-        else
-        {
-            Debug.Log("-");
+            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+            {
+                //Has Clear Counter
+                clearCounter.Interact();
+            }
+
+            /*
+            Another way of using Getcomponent but we usually prefer
+            TryGetComponent because of the null check  
+            ClearCounter clearCounter = raycastHit.transform.GetComponent<ClearCounter>();
+            if (clearCounter !=null)
+            {
+                //Has Clear Counter
+            }
+            */
         }
     }
 

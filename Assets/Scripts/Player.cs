@@ -3,13 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    public static PlayerController Instance { get; private set; }
+    public static Player Instance { get; private set; }
 
 
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
-
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
         public ClearCounter selectedCounter;
@@ -34,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance is { })
+        if (Instance != null)
         {
             Debug.LogError("There is more than one Player Instance");
         }
@@ -50,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
-        if (selectedCounter is { })
+        if (selectedCounter != null)
         {
             selectedCounter.Interact();
         }
@@ -77,7 +76,7 @@ public class PlayerController : MonoBehaviour
             lastInteractDir = moveDir;
         }
 
-        float interactDistance = 1f;
+        float interactDistance = 2f;
         RaycastHit raycastHit;
         if (Physics.Raycast(transform.position, lastInteractDir, out raycastHit, interactDistance, countersLayerMask))
         {

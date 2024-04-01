@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameInput gameInput;
 
+    [SerializeField]
+    private LayerMask countersLayerMask;
+
     private bool isWalking;
     private Vector3 lastInteractDir;
 
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
         float interactDistance = 1f;
         RaycastHit raycastHit;
-        if (Physics.Raycast(transform.position, lastInteractDir, out raycastHit, interactDistance))
+        if (Physics.Raycast(transform.position, lastInteractDir, out raycastHit, interactDistance, countersLayerMask))
         {
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
             {

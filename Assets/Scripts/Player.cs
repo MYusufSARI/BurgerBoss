@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
 
-
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
@@ -15,14 +14,9 @@ public class Player : MonoBehaviour
     }
 
     [SerializeField]
-    private float moveSpeed;
-
-    [SerializeField]
-    private float rotateSpeed;
-
+    private float moveSpeed = 7f;
     [SerializeField]
     private GameInput gameInput;
-
     [SerializeField]
     private LayerMask countersLayerMask;
 
@@ -35,12 +29,10 @@ public class Player : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogError("There is more than one Player Instance");
+            Debug.LogError("There is more than one Player instance");
         }
-
         Instance = this;
     }
-
 
     private void Start()
     {
@@ -58,7 +50,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         HandleMovement();
-        HandleInteraction();
+        HandleInteractions();
     }
 
     public bool IsWalking()
@@ -66,9 +58,10 @@ public class Player : MonoBehaviour
         return isWalking;
     }
 
-    private void HandleInteraction()
+    private void HandleInteractions()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
         if (moveDir != Vector3.zero)
@@ -77,31 +70,21 @@ public class Player : MonoBehaviour
         }
 
         float interactDistance = 2f;
-        RaycastHit raycastHit;
-        if (Physics.Raycast(transform.position, lastInteractDir, out raycastHit, interactDistance, countersLayerMask))
+        if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMask))
         {
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
             {
-                //Has Clear Counter
+                // Has ClearCounter
                 if (clearCounter != selectedCounter)
                 {
-                    SetSelectedCounter(null);
+                    SetSelectedCounter(clearCounter);
                 }
             }
             else
             {
                 SetSelectedCounter(null);
-            }
 
-            /*
-            Another way of using Getcomponent but we usually prefer
-            TryGetComponent because of the null check  
-            ClearCounter clearCounter = raycastHit.transform.GetComponent<ClearCounter>();
-            if (clearCounter !=null)
-            {
-                //Has Clear Counter
             }
-            */
         }
         else
         {
@@ -109,53 +92,50 @@ public class Player : MonoBehaviour
         }
     }
 
-
     private void HandleMovement()
     {
-
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
-        float playerRadius = 0.7f;
-        float playerHeight = 2f;
         float moveDistance = moveSpeed * Time.deltaTime;
+        float playerRadius = .7f;
+        float playerHeight = 2f;
         bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
 
         if (!canMove)
         {
-            //Cannot move toward moveDir
+            // Cannot move towards moveDir
 
-            //Attempt only X movement
+            // Attempt only X movement
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
             canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
 
             if (canMove)
             {
-                //Can only on the X
+                // Can move only on the X
                 moveDir = moveDirX;
             }
-
             else
             {
                 // Cannot move only on the X
 
-                //Attempt only Z movement
+                // Attempt only Z movement
                 Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
                 canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
 
                 if (canMove)
                 {
-                    //Can move only on the Z
+                    // Can move only on the Z
                     moveDir = moveDirZ;
                 }
-
                 else
                 {
-                    //Cannot move any direction
+                    // Cannot move in any direction
                 }
             }
         }
+
         if (canMove)
         {
             transform.position += moveDir * moveDistance;
@@ -163,7 +143,8 @@ public class Player : MonoBehaviour
 
         isWalking = moveDir != Vector3.zero;
 
-        transform.forward = Vector3.Slerp(transform.forward, moveDir, rotateSpeed * Time.deltaTime);
+        float rotateSpeed = 10f;
+        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
     }
 
     private void SetSelectedCounter(ClearCounter selectedCounter)
@@ -175,4 +156,5 @@ public class Player : MonoBehaviour
             selectedCounter = selectedCounter
         });
     }
+
 }

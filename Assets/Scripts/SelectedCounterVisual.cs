@@ -1,15 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectedCounterVisual : MonoBehaviour
 {
-    [SerializeField]
-    private ClearCounter clearCounter;
+    [SerializeField] private ClearCounter clearCounter;
+    [SerializeField] private GameObject visualGameObject;
 
-    [SerializeField]
-    private GameObject visualGameObject;
 
     private void Start()
     {
@@ -20,12 +17,11 @@ public class SelectedCounterVisual : MonoBehaviour
     {
         if (e.selectedCounter == clearCounter)
         {
-            Hide();
+            Show();
         }
-
         else
         {
-            Show();
+            Hide();
         }
     }
 
@@ -38,4 +34,5 @@ public class SelectedCounterVisual : MonoBehaviour
     {
         visualGameObject.SetActive(false);
     }
+
 }

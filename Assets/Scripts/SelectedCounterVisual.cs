@@ -20,12 +20,12 @@ public class SelectedCounterVisual : MonoBehaviour
     {
         if (e.selectedCounter == clearCounter)
         {
-            Show();
+            Hide();
         }
 
         else
         {
-            Hide();
+            Show();
         }
     }
 

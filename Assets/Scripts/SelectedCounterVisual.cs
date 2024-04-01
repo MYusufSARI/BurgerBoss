@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SelectedCounterVisual : MonoBehaviour
 {
+    [SerializeField]
+    private ClearCounter clearCounter;
+
     private void Start()
     {
         PlayerController.Instance.OnSelectedCounterChanged += Player_OnSelectedCounterChanged;
@@ -11,6 +14,6 @@ public class SelectedCounterVisual : MonoBehaviour
 
     private void Player_OnSelectedCounterChanged(object sender, PlayerController.OnSelectedCounterChangedEventArgs e)
     {
-        throw new System.NotImplementedException();
+                
     }
 }

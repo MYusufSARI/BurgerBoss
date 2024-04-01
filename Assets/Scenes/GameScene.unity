@@ -1018,6 +1018,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 2893847859565707495, guid: 99471bd6d40414e5090391871437e810,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3298469717067685856, guid: 99471bd6d40414e5090391871437e810,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1066,6 +1071,16 @@ PrefabInstance:
     - target: {fileID: 3298469717067685856, guid: 99471bd6d40414e5090391871437e810,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685957970720658771, guid: 99471bd6d40414e5090391871437e810,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564680466879497405, guid: 99471bd6d40414e5090391871437e810,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class SelectedCounterVisual : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        PlayerController.Instance.OnSelectedCounterChanged += Player_OnSelectedCounterChanged;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Player_OnSelectedCounterChanged(object sender, PlayerController.OnSelectedCounterChangedEventArgs e)
     {
-        
+        throw new System.NotImplementedException();
     }
 }

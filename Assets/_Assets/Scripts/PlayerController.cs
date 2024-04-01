@@ -18,12 +18,32 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         HandleMovement();
+        HandleInteraction();
     }
 
     public bool IsWalking()
     {
         return isWalking;
     }
+
+    private void HandleInteraction()
+    {
+        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+
+        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        float interactDistance = 2f;
+        RaycastHit raycastHit;
+        if (Physics.Raycast(transform.position, moveDir, out raycastHit, interactDistance))
+        {
+            Debug.Log(raycastHit.transform);
+        }
+        else
+        {
+            Debug.Log("-");
+        }
+    }
+
 
     private void HandleMovement()
     {

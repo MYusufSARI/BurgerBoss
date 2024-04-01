@@ -19,6 +19,43 @@ public class PlayerController : MonoBehaviour
     private bool isWalking;
     private Vector3 lastInteractDir;
 
+    private void Start()
+    {
+        gameInput.OnInteractAction += GameInput_OnInteractAction;
+    }
+
+    private void GameInput_OnInteractAction(object sender, System.EventArgs e)
+    {
+        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        if (moveDir != Vector3.zero)
+        {
+            lastInteractDir = moveDir;
+        }
+
+        float interactDistance = 1f;
+        RaycastHit raycastHit;
+        if (Physics.Raycast(transform.position, lastInteractDir, out raycastHit, interactDistance, countersLayerMask))
+        {
+            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+            {
+                //Has Clear Counter
+                clearCounter.Interact();
+            }
+
+            /*
+            Another way of using Getcomponent but we usually prefer
+            TryGetComponent because of the null check  
+            ClearCounter clearCounter = raycastHit.transform.GetComponent<ClearCounter>();
+            if (clearCounter !=null)
+            {
+                //Has Clear Counter
+            }
+            */
+        }
+    }
+
     private void Update()
     {
         HandleMovement();
@@ -47,7 +84,6 @@ public class PlayerController : MonoBehaviour
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
             {
                 //Has Clear Counter
-                clearCounter.Interact();
             }
 
             /*

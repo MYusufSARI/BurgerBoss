@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
             lastInteractDir = moveDir;
         }
 
-        float interactDistance = 2f;
+        float interactDistance = 1f;
         RaycastHit raycastHit;
         if (Physics.Raycast(transform.position, lastInteractDir, out raycastHit, interactDistance))
         {

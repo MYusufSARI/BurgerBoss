@@ -17,6 +17,8 @@ public class KitchenObject : MonoBehaviour
     public void SetClearCounter(ClearCounter clearCounter)
     {
         this.clearCounter = clearCounter;
+        transform.parent = clearCounter.GetKitchenObjectFollowTransform();
+        transform.localPosition = Vector3.zero;
     }
 
     public ClearCounter GetClearCounter()

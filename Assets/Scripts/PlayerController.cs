@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private GameInput gameInput;
 
     private bool isWalking;
+    private Vector3 lastInteractDir;
 
     private void Update()
     {
@@ -29,12 +30,16 @@ public class PlayerController : MonoBehaviour
     private void HandleInteraction()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
-
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        if (moveDir != Vector3.zero)
+        {
+            lastInteractDir = moveDir;
+        }
 
         float interactDistance = 2f;
         RaycastHit raycastHit;
-        if (Physics.Raycast(transform.position, moveDir, out raycastHit, interactDistance))
+        if (Physics.Raycast(transform.position, lastInteractDir, out raycastHit, interactDistance))
         {
             Debug.Log(raycastHit.transform);
         }

@@ -17,6 +17,17 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        HandleMovement();
+    }
+
+    public bool IsWalking()
+    {
+        return isWalking;
+    }
+
+    private void HandleMovement()
+    {
+
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
@@ -53,7 +64,7 @@ public class PlayerController : MonoBehaviour
                     //Can move only on the Z
                     moveDir = moveDirZ;
                 }
-                 
+
                 else
                 {
                     //Cannot move any direction
@@ -68,10 +79,5 @@ public class PlayerController : MonoBehaviour
         isWalking = moveDir != Vector3.zero;
 
         transform.forward = Vector3.Slerp(transform.forward, moveDir, rotateSpeed * Time.deltaTime);
-    }
-
-    public bool IsWalking()
-    {
-        return isWalking;
     }
 }

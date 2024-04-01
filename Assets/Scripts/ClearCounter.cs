@@ -23,13 +23,14 @@ public class ClearCounter : MonoBehaviour
     private void Update()
     {
         if (testing && Input.GetKeyDown(KeyCode.T))
+        {
             if (kitchenObject != null)
             {
                 kitchenObject.SetClearCounter(secondClearCounter);
                 Debug.Log(kitchenObject.GetClearCounter());
             }
 
-
+        }
     }
 
 

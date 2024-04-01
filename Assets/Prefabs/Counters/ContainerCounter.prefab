@@ -343,3 +343,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5b5713f037a4c99a5d530a71e255b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kitchenObjectSO: {fileID: 11400000, guid: 74f573321a1f5400f90792ef401e720a, type: 2}
+  counterTopPoint: {fileID: 8686798131824520215}
+--- !u!4 &8686798131824520215 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 516812701064376162, guid: 2a6a3d2e814f644d49f281bb3d0a7c8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 9196810625588085621}
+  m_PrefabAsset: {fileID: 0}

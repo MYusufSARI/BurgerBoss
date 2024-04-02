@@ -15,7 +15,11 @@ public class CuttingCounter : BaseCounter
             if (player.HasKitchenObject())
             {
                 //Player is carrying something
-                player.GetKitchenObject().SetKitchenObjectParent(this);
+                if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
+                {
+                    //Player carrying someting that can be Cut
+                    player.GetKitchenObject().SetKitchenObjectParent(this);
+                }
             }
             else
             {
@@ -40,15 +44,26 @@ public class CuttingCounter : BaseCounter
 
     public override void InteractAlternate(Player player)
     {
-        if (HasKitchenObject())
+        if (HasKitchenObject()&& HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
         {
-            //There is a KitchenObject here
-
+            //There is a KitchenObject here and it can be cut
             KitchenObjectSO outputKitchenObjectSO = GetOutpuForInput(GetKitchenObject().GetKitchenObjectSO());
 
             GetKitchenObject().DestroySelf();
-            KitchenObject.SpawnKitchenObject(outputKitchenObjectSO,this);
+            KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
         }
+    }
+
+    private bool HasRecipeWithInput(KitchenObjectSO inputKitchenObjectSO)
+    {
+        foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray)
+        {
+            if (cuttingRecipeSO.input == inputKitchenObjectSO)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private KitchenObjectSO GetOutpuForInput(KitchenObjectSO inputKitchenObjectSO)

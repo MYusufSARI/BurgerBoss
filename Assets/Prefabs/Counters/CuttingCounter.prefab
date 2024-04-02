@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8972dc69f9e8d404c9670f8b4b3eed20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  counterTopPoint: {fileID: 516812701064376162}
 --- !u!1001 &699086312580202434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -321,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce34ac1fdcc544d1a97cdf699fddc373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCounter: {fileID: 0}
+  baseCounter: {fileID: 1188476528937117677}
   visualGameObjectArray:
   - {fileID: 9089314556421865216}
   - {fileID: 5101602426756865001}

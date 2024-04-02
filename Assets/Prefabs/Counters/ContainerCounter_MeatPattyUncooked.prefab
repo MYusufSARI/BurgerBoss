@@ -62,18 +62,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 77b28124b8bda494381c80bd5aa42c22,
+      objectReference: {fileID: 21300000, guid: aa1bacc24dde76e47b2ec0dd4e82385b,
         type: 3}
     - target: {fileID: 5864186438567937828, guid: 0c0f5ff231d084198a280010bcd42eca,
         type: 3}
       propertyPath: m_Name
-      value: ContainerCounter_Bread
+      value: ContainerCounter_MeatPattyUncooked
       objectReference: {fileID: 0}
     - target: {fileID: 6481563100941096118, guid: 0c0f5ff231d084198a280010bcd42eca,
         type: 3}
       propertyPath: kitchenObjectSO
       value: 
-      objectReference: {fileID: 11400000, guid: 8fc70f38a13f44372bb8366388b3b0c5,
+      objectReference: {fileID: 11400000, guid: 686b236a585264df9a66c84747689691,
         type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

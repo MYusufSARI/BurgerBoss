@@ -43,8 +43,23 @@ public class CuttingCounter : BaseCounter
         if (HasKitchenObject())
         {
             //There is a KitchenObject here
+
+            KitchenObjectSO outputKitchenObjectSO = GetOutpuForInput(GetKitchenObject().GetKitchenObjectSO());
+
             GetKitchenObject().DestroySelf();
-            KitchenObject.SpawnKitchenObject(cutKitchenObjectSO,this);
+            KitchenObject.SpawnKitchenObject(outputKitchenObjectSO,this);
         }
+    }
+
+    private KitchenObjectSO GetOutpuForInput(KitchenObjectSO inputKitchenObjectSO)
+    {
+        foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray)
+        {
+            if (cuttingRecipeSO.input == inputKitchenObjectSO)
+            {
+                return cuttingRecipeSO.output;
+            }
+        }
+        return null;
     }
 }

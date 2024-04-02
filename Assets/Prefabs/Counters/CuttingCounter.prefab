@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7322531485314128755}
   - component: {fileID: 5432903708211576532}
+  - component: {fileID: 1188476528937117677}
   m_Layer: 6
   m_Name: CuttingCounter
   m_TagString: Untagged
@@ -87,6 +88,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1188476528937117677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3368803535359968337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8972dc69f9e8d404c9670f8b4b3eed20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &699086312580202434
 PrefabInstance:
   m_ObjectHideFlags: 0

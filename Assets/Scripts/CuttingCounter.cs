@@ -5,7 +5,7 @@ using UnityEngine;
 public class CuttingCounter : BaseCounter
 {
     [SerializeField]
-    private KitchenObjectSO cutKitchenObjectSO;
+    private CuttingRecipeSO[] cuttingRecipeSOArray;
 
     public override void Interact(Player player)
     {

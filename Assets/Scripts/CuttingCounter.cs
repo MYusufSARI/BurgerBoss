@@ -67,6 +67,12 @@ public class CuttingCounter : BaseCounter
             cuttingProgress++;
 
             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+
+            OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+            {
+                progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgessMax
+            });
+
             KitchenObjectSO outputKitchenObjectSO = GetOutpuForInput(GetKitchenObject().GetKitchenObjectSO());
 
             if (cuttingProgress >= cuttingRecipeSO.cuttingProgessMax)

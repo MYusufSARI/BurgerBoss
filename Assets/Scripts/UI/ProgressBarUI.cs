@@ -10,4 +10,14 @@ public class ProgressBarUI : MonoBehaviour
 
     [SerializeField]
     private CuttingCounter cuttingCounter;
+
+    private void Start()
+    {
+        cuttingCounter.OnProgressChanged += CuttingCounter_OnProgressChanged;
+    }
+
+    private void CuttingCounter_OnProgressChanged(object sender, CuttingCounter.OnProgressChangedEventArgs e)
+    {
+        barImage.fillAmount = e.progressNormalized;
+    }
 }

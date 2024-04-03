@@ -297,6 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668bc25ae853541a696d4d7dae61396a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barImage: {fileID: 1681136723869393954}
+  cuttingCounter: {fileID: 1188476528937117677}
 --- !u!1 &8489998691166101993
 GameObject:
   m_ObjectHideFlags: 0

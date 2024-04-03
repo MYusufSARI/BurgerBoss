@@ -50,6 +50,8 @@ public class CuttingCounter : BaseCounter
         if (HasKitchenObject()&& HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
         {
             //There is a KitchenObject here and it can be cut
+            cuttingProgress++;
+
             KitchenObjectSO outputKitchenObjectSO = GetOutpuForInput(GetKitchenObject().GetKitchenObjectSO());
 
             GetKitchenObject().DestroySelf();

@@ -47,15 +47,19 @@ public class CuttingCounter : BaseCounter
 
     public override void InteractAlternate(Player player)
     {
-        if (HasKitchenObject()&& HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
+        if (HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
         {
             //There is a KitchenObject here and it can be cut
             cuttingProgress++;
 
+            CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
             KitchenObjectSO outputKitchenObjectSO = GetOutpuForInput(GetKitchenObject().GetKitchenObjectSO());
 
-            GetKitchenObject().DestroySelf();
-            KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
+            if (cuttingProgress >= cuttingRecipeSO.cuttingProgessMax)
+            {
+                GetKitchenObject().DestroySelf();
+                KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
+            }
         }
     }
 
@@ -70,7 +74,7 @@ public class CuttingCounter : BaseCounter
     {
         CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(inputKitchenObjectSO);
 
-        if (cuttingRecipeSO!= null)
+        if (cuttingRecipeSO != null)
         {
             return cuttingRecipeSO.output;
         }

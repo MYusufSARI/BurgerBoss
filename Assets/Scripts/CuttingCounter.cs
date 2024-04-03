@@ -32,7 +32,7 @@ public class CuttingCounter : BaseCounter
             //There is a KitchenObject here
             if (player.HasKitchenObject())
             {
-                //Player is carrying something
+                //Player is carrying something -
             }
             else
             {

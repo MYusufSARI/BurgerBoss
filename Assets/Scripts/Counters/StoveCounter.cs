@@ -14,6 +14,14 @@ public class StoveCounter : BaseCounter
         if (HasKitchenObject())
         {
             fryingTimer = Time.deltaTime;
+            FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+            if (fryingTimer > fryingRecipeSO.fryingTimerMax)
+            {
+                //Fried
+                GetKitchenObject().DestroySelf();
+
+                KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
+            }
         }
     }
 

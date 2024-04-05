@@ -14,7 +14,7 @@ public class StoveCounter : BaseCounter
     {
         if (HasKitchenObject())
         {
-            fryingTimer = Time.deltaTime;
+            fryingTimer += Time.deltaTime;
             if (fryingTimer > fryingRecipeSO.fryingTimerMax)
             {
                 //Fried
@@ -41,7 +41,7 @@ public class StoveCounter : BaseCounter
                     //Player carrying someting that can be fried
                     player.GetKitchenObject().SetKitchenObjectParent(this);
 
-                    FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                    fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
                     
                 }
             }

@@ -18,10 +18,13 @@ public class StoveCounter : BaseCounter
             if (fryingTimer > fryingRecipeSO.fryingTimerMax)
             {
                 //Fried
+                fryingTimer = 0f;
+                Debug.Log("Fried!");
                 GetKitchenObject().DestroySelf();
 
                 KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
             }
+            Debug.Log(fryingTimer);
         }
     }
 

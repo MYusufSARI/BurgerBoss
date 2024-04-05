@@ -7,6 +7,16 @@ public class StoveCounter : BaseCounter
     [SerializeField]
     private FryingRecipeSO[] fryingRecipeSOArray;
 
+    private float fryingTimer;
+
+    private void Update()
+    {
+        if (HasKitchenObject())
+        {
+            fryingTimer = Time.deltaTime;
+        }
+    }
+
     public override void Interact(Player player)
     {
         if (!HasKitchenObject())

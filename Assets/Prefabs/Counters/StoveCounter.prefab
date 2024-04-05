@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7322531485314128755}
   - component: {fileID: 5432903708211576532}
+  - component: {fileID: 4842284597015957603}
   m_Layer: 6
   m_Name: StoveCounter
   m_TagString: Untagged
@@ -87,6 +88,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &4842284597015957603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3368803535359968337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a18960ebbdbf435889626d591fca25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterTopPoint: {fileID: 516812701064376162}
+  fryingRecipeSO:
+  - {fileID: 11400000, guid: e136c603483dc4055b580761930cb676, type: 2}
 --- !u!1001 &4378547817928178409
 PrefabInstance:
   m_ObjectHideFlags: 0

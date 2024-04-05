@@ -6,4 +6,9 @@ public class StoveCounter : BaseCounter
 {
     [SerializeField]
     private FryingRecipeSO[] fryingRecipeSO;
+
+    public override void Interact(Player player)
+    {
+        
+    }
 }

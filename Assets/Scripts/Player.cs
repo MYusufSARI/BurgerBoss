@@ -83,6 +83,8 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         if (moveDir != Vector3.zero)
         {
             lastInteractDir = moveDir;
+            lastInteractDir = moveDir;
+
         }
 
         float interactDistance = 2f;

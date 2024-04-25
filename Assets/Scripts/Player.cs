@@ -69,6 +69,8 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         HandleInteractions();
     }
 
+
+
     public bool IsWalking()
     {
         return isWalking;

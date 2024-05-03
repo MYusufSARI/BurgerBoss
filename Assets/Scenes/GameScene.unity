@@ -246,6 +246,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2972cd1e3f76449993420cefc95b98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &77693863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 374909277348923338, guid: 468bfe7e94c244b10919774d2c42a8bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1376672228}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &121234776
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,10 +304,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 460398723}
     m_Modifications:
+    - target: {fileID: 1681136723869393954, guid: 9c205236f3863492bbf664b89b78c9b7,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681136723869393954, guid: 9c205236f3863492bbf664b89b78c9b7,
+        type: 3}
+      propertyPath: m_FillOrigin
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3368803535359968337, guid: 9c205236f3863492bbf664b89b78c9b7,
         type: 3}
       propertyPath: m_Name
       value: CuttingCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332481284659290646, guid: 9c205236f3863492bbf664b89b78c9b7,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7322531485314128755, guid: 9c205236f3863492bbf664b89b78c9b7,
         type: 3}
@@ -358,6 +379,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c205236f3863492bbf664b89b78c9b7, type: 3}
+--- !u!1 &207192857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5583486778022252611, guid: 468bfe7e94c244b10919774d2c42a8bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1376672228}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &230069358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4842284597015957603, guid: 468bfe7e94c244b10919774d2c42a8bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1376672228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a18960ebbdbf435889626d591fca25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &276320671 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7495816339977638915, guid: ce5525a6c2b1f437ab0e6c3d6ca5a182,
@@ -2257,7 +2296,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8282188961346862478, guid: 468bfe7e94c244b10919774d2c42a8bb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1478208296}
   m_SourcePrefab: {fileID: 100100000, guid: 468bfe7e94c244b10919774d2c42a8bb, type: 3}
 --- !u!1 &1459778717 stripped
 GameObject:
@@ -2284,6 +2327,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1752869279}
+--- !u!1 &1478208294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8282188961346862478, guid: 468bfe7e94c244b10919774d2c42a8bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1376672228}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1478208296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478208294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd4a61f683a44d08a2477403918c7fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoveOnGameObject: {fileID: 207192857}
+  particlesGameObject: {fileID: 77693863}
+  stoveCounter: {fileID: 230069358}
 --- !u!4 &1505751031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4052438110418305660, guid: bd4902ed9f2c1488d986e1c44f5f4f56,

@@ -9,7 +9,7 @@ public class ClearCounter : BaseCounter
     private KitchenObjectSO kitchenObjectSO;
 
 
-    public override void Interact(Player player)        
+    public override void Interact(Player player)
     {
         if (!HasKitchenObject())
         {
@@ -32,12 +32,14 @@ public class ClearCounter : BaseCounter
             {
                 //Player is carrying something
 
-                if (player.GetKitchenObject()is PlateKitchenObject)
+                if (player.GetKitchenObject() is PlateKitchenObject)
                 {
                     //Player is holding a Plate
                     PlateKitchenObject plateKitchenObject = player.GetKitchenObject() as PlateKitchenObject;
-                    plateKitchenObject.AddIngredient(GetKitchenObject().GetKitchenObjectSO());
-                    GetKitchenObject().DestroySelf();
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    {
+                        GetKitchenObject().DestroySelf();
+                    }
                 }
             }
             else

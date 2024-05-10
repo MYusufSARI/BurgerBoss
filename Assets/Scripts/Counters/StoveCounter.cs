@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoveCounter : BaseCounter , IHasProgress
+public class StoveCounter : BaseCounter, IHasProgress
 {
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
 
@@ -14,7 +14,7 @@ public class StoveCounter : BaseCounter , IHasProgress
         public State state;
     }
 
-    public  enum State
+    public enum State
     {
         Idle,
         Frying,
@@ -151,7 +151,27 @@ public class StoveCounter : BaseCounter , IHasProgress
             //There is a KitchenObject here
             if (player.HasKitchenObject())
             {
-                //Player is carrying something 
+                //Player is carrying something
+                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                {
+                    //Player is holding a Plate
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                    {
+                        GetKitchenObject().DestroySelf();
+
+                        state = State.Idle;
+
+                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
+                        {
+                            state = state
+                        });
+
+                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                        {
+                            progressNormalized = 0f
+                        }); ;
+                    }
+                }
             }
             else
             {

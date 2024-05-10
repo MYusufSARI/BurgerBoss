@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlatesCounter : BaseCounter
 {
+    [SerializeField]
     private KitchenObjectSO plateKitchenObjectSO;
 
     private float spawnPLateTimer;
     private float spawnPlateTimerMax = 4f;
+    private int platesSpawnedAmount;
+    private int platesSpawnedAmountMax;
 
     private void Update()
     {

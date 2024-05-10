@@ -18,7 +18,12 @@ public class PlatesCounter : BaseCounter
 
         if (spawnPLateTimer > spawnPlateTimerMax)
         {
-            KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, this);
+            spawnPLateTimer = 0f;
+
+            if (platesSpawnedAmount<platesSpawnedAmountMax)
+            {
+                platesSpawnedAmount++;
+            }
         }
     }
 }

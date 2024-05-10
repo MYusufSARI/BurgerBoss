@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatesCounter : MonoBehaviour
+public class PlatesCounter : BaseCounter
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private KitchenObjectSO plateKitchenObjectSO;
 
-    // Update is called once per frame
-    void Update()
+    private float spawnPLateTimer;
+    private float spawnPlateTimerMax = 4f;
+
+    private void Update()
     {
-        
+        spawnPLateTimer += Time.deltaTime;
+
+        if (spawnPLateTimer > spawnPlateTimerMax)
+        {
+            KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, this);
+        }
     }
 }

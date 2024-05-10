@@ -2171,6 +2171,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 118634426577210836, guid: fd8467f0711574f6590e1a09f51b314d,
+        type: 3}
+      propertyPath: visualGameObjectArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 1687826260}
     - target: {fileID: 339410468077533035, guid: fd8467f0711574f6590e1a09f51b314d,
         type: 3}
       propertyPath: m_Name
@@ -2540,6 +2545,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1275125481}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1687826260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2046074099021458312, guid: fd8467f0711574f6590e1a09f51b314d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1243461102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1691064898 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7495816339977638915, guid: ce5525a6c2b1f437ab0e6c3d6ca5a182,
@@ -2577,7 +2588,7 @@ Transform:
   m_GameObject: {fileID: 1701350375}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.02, z: 0.79}
+  m_LocalPosition: {x: 0, y: 1.02, z: 1.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -97,7 +97,7 @@ public class StoveCounter : BaseCounter, IHasProgress
 
                         Debug.Log("Object Burned!");
                         state = State.Burned;
-
+                        
                         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
                         {
                             state = state

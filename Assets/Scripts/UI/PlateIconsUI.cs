@@ -24,7 +24,7 @@ public class PlateIconsUI : MonoBehaviour
     {
         foreach (KitchenObjectSO kitchenObjectSO in plateKitchenObject.GetKitchenObjectSOList())
         {
-
+            Transform iconTransform =  Instantiate(iconTemplate, transform);
         }
     }
 }

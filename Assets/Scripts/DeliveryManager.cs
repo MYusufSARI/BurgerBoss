@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
+    public static DeliveryManager Instance { get; private set; }
+
     [SerializeField]
     private RecipeListSO recipeListSO;
 
@@ -15,6 +17,7 @@ public class DeliveryManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         waitingRecipeSOList = new List<RecipeSO>();
     }
 
@@ -68,7 +71,20 @@ public class DeliveryManager : MonoBehaviour
                         plateContentsMatchesRecipe = false;
                     }
                 }
+
+                if (plateContentsMatchesRecipe)
+                {
+                    //Player delivered the correct Recipe
+                    Debug.Log("Player delivered the correct Recipe!");
+                    waitingRecipeSOList.RemoveAt(i);
+                    return;   
+                }
             }
         }
+
+        //No matches found!
+        //Player did not delvier a correct Recipe
+        Debug.Log("Player did not deliver a correct Recipe!");
+
     }
 }

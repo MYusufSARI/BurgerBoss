@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
-    private List<RecipeSO> recipeList;
+    private List<RecipeSO> waitingRecipeList;
+
+
 }

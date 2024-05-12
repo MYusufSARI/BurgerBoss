@@ -33,4 +33,42 @@ public class DeliveryManager : MonoBehaviour
             }
         }
     }
+
+    public void DeliverRecipe(PlateKitchenObject plateKitchenObject)
+    {
+        for (int i = 0; i < waitingRecipeSOList.Count; i++)
+        {
+            RecipeSO waitingRecipeSO = waitingRecipeSOList[i];
+
+            if (waitingRecipeSO.kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
+            {
+                //Has the same number of ingredfients
+                bool plateContentsMatchesRecipe = true;
+
+                foreach (KitchenObjectSO recipeKitchenObjectSO in waitingRecipeSO.kitchenObjectSOList)
+                {
+                    //Cycling through all ingredients in the Recipe
+                    bool ingredientFound = false;
+
+                    foreach(KitchenObjectSO plateKitchenObjectSO in plateKitchenObject.GetKitchenObjectSOList())
+                    {
+                        //Cycling through all ingredients in the Plate
+
+                        if (plateKitchenObjectSO == recipeKitchenObjectSO)
+                        {
+                            //Ingredients matches!
+                            ingredientFound = true;
+                            break;
+                        }
+                    }
+
+                    if (!ingredientFound)
+                    {
+                        //This Recipe's ingredient was not found on the Plate
+                        plateContentsMatchesRecipe = false;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -20,7 +20,7 @@ public class DeliveryManager : MonoBehaviour
 
     private void Update()
     {
-        spawnRecipeTimer = Time.deltaTime;
+        spawnRecipeTimer -= Time.deltaTime;
         if (spawnRecipeTimer <= 0f)
         {
             spawnRecipeTimer = spawnRecipeTimerMax;

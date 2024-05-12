@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
-    private List<RecipeSO> waitingRecipeList;
+    [SerializeField]
+    private RecipeListSO recipeListSO;
 
+    private List<RecipeSO> waitingRecipeList;
 
 }

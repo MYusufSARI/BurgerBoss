@@ -11,9 +11,28 @@ public class DeliveryManagerUI : MonoBehaviour
     [SerializeField]
     private Transform recipeTemplate;
 
+
     private void Awake()
     {
         recipeTemplate.gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        DeliveryManager.Instance.OnRecipeSpawned += DeliveryManager_OnRecipeSpawned;
+        DeliveryManager.Instance.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
+
+        UpdateVisual();
+    }
+
+    private void DeliveryManager_OnRecipeCompleted(object sender, System.EventArgs e)
+    {
+        UpdateVisual();
+    }
+
+    private void DeliveryManager_OnRecipeSpawned(object sender, System.EventArgs e)
+    {
+        UpdateVisual(); 
     }
 
     private void UpdateVisual()
@@ -30,5 +49,4 @@ public class DeliveryManagerUI : MonoBehaviour
             recipeTransform.gameObject.SetActive(true);
         }
     }
-
 }

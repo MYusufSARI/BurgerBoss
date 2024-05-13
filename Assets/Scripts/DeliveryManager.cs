@@ -87,4 +87,9 @@ public class DeliveryManager : MonoBehaviour
         Debug.Log("Player did not deliver a correct Recipe!");
 
     }
+
+    public List<RecipeSO> GetWaitingRecipeSOList()
+    {
+        return waitingRecipeSOList;
+    }
 }

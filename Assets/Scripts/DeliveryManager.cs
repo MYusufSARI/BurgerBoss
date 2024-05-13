@@ -81,7 +81,6 @@ public class DeliveryManager : MonoBehaviour
                 if (plateContentsMatchesRecipe)
                 {
                     //Player delivered the correct Recipe
-                    Debug.Log("Player delivered the correct Recipe!");
                     waitingRecipeSOList.RemoveAt(i);
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     return;   
@@ -91,7 +90,6 @@ public class DeliveryManager : MonoBehaviour
 
         //No matches found!
         //Player did not delvier a correct Recipe
-        Debug.Log("Player did not deliver a correct Recipe!");
 
     }
 

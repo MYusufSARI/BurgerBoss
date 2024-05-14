@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KitchenGameManager : MonoBehaviour
 {
+    public static KitchenGameManager Instance { get; private set; }
 
     private enum State
     {
@@ -20,6 +21,7 @@ public class KitchenGameManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         state = State.WaitingToStart;
     }
 
@@ -55,6 +57,11 @@ public class KitchenGameManager : MonoBehaviour
                 break;
         }
         Debug.Log(state);
+    }
+
+    public bool IsGamePlaying()
+    {
+        return state == State.GamePlaying;
     }
 
 }

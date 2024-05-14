@@ -61,7 +61,7 @@ public class DeliveryManager : MonoBehaviour
                     //Cycling through all ingredients in the Recipe
                     bool ingredientFound = false;
 
-                    foreach(KitchenObjectSO plateKitchenObjectSO in plateKitchenObject.GetKitchenObjectSOList())
+                    foreach (KitchenObjectSO plateKitchenObjectSO in plateKitchenObject.GetKitchenObjectSOList())
                     {
                         //Cycling through all ingredients in the Plate
 
@@ -86,7 +86,7 @@ public class DeliveryManager : MonoBehaviour
                     waitingRecipeSOList.RemoveAt(i);
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
-                    return;   
+                    return;
                 }
             }
         }

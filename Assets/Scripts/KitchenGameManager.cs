@@ -4,15 +4,57 @@ using UnityEngine;
 
 public class KitchenGameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private enum State
     {
-        
+        WaitingToStart,
+        CountDownStart,
+        GamePlaying,
+        GameOver,
     }
 
-    // Update is called once per frame
-    void Update()
+    private State state;
+    private float waitingToStartTimer = 1f;
+    private float countDownToStartTimer = 1f;
+    private float gamePlayingTimer = 10f;
+
+    private void Awake()
     {
-        
+        state = State.WaitingToStart;
     }
+
+    private void Update()
+    {
+        switch (state)
+        {
+            case State.WaitingToStart:
+                waitingToStartTimer -= Time.deltaTime;
+                if (waitingToStartTimer < 0f)
+                {
+                    state = State.CountDownStart;
+                }
+                break;
+
+            case State.CountDownStart:
+                countDownToStartTimer -= Time.deltaTime;
+                if (countDownToStartTimer < 0f)
+                {
+                    state = State.GamePlaying;
+                }
+                break;
+
+            case State.GamePlaying:
+                gamePlayingTimer -= Time.deltaTime;
+                if (gamePlayingTimer < 0f)
+                {
+                    state = State.GameOver;
+                }
+                break;
+
+            case State.GameOver:
+                break;
+        }
+        Debug.Log(state);
+    }
+
 }

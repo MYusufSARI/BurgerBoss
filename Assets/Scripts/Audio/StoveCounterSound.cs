@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class StoveCounterSound : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private StoveCounter stoveCounter;
+
+    private AudioSource audioSource;
+
+    private void Awake()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        stoveCounter.OnStateChanged += StoveCounter_OnStateChanged;
+    }
+
+    private void StoveCounter_OnStateChanged(object sender, StoveCounter.OnStateChangedEventArgs e)
+    {
+        bool playSound = e.state == StoveCounter.State.Frying || e.state == StoveCounter.State.Fried;
+        if (playSound)
+        {
+            audioSource.Play();
+        }
+
+        else
+        {
+            audioSource.Pause();
+        }
     }
 }

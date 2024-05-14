@@ -1,18 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameStartCountDownUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private TextMeshProUGUI countDownText;
+
+    private void Start()
     {
-        
+        KitchenGameManager.Instance.OnStateChanged += KitchenGameManager_OnStateChanged;
+
+        Hide();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void KitchenGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
-        
+        if (KitchenGameManager.Instance.IsCountDownToStartActive())
+        {
+            Show();
+        }
+
+        else
+        {
+            Hide();
+        }
+    }
+
+    private void Update()
+    {
+        countDownText.text = Mathf.Ceil(KitchenGameManager.Instance.GetCountDownStartTimer()).ToString();
+    }
+
+
+    private void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+    private void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

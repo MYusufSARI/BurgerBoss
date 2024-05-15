@@ -117,6 +117,8 @@ public class OptionsUI : MonoBehaviour
     {
         soundsEffectsText.text = "Sound Effects:" + Mathf.Round(SoundManager.Instance.GetVolume() * 10f);
         musicText.text = "Music:" + Mathf.Round(MusicManager.Instance.GetVolume() * 10f);
+
+        //moveUpText.text = 
     }
 
 

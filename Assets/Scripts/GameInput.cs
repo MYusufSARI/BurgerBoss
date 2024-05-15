@@ -12,6 +12,18 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnPauseAction;
 
 
+    public enum Binding
+    {
+        Move_Up,
+        Move_Down,
+        Move_Left,
+        Move_Right,
+        Interact,
+        InteractAlternate,
+        Pause,
+    }
+
+
     private PlayerInputActions playerInputActions;
 
 
@@ -25,6 +37,8 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Interact.performed += Interact_performed;
         playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
         playerInputActions.Player.Pause.performed += Pause_performed;
+
+        Debug.Log(GetBindingText(Binding.Move_Up));
     }
 
     private void OnDestroy()
@@ -67,4 +81,19 @@ public class GameInput : MonoBehaviour
         return inputVector;
     }
 
+    public string GetBindingText(Binding binding)
+    {
+        switch (binding)
+        {
+            default:
+            case Binding.Move_Up:
+                return playerInputActions.Player.Move.bindings[0].ToString();
+            case Binding.Interact:
+                return playerInputActions.Player.Interact.bindings[0].ToDisplayString();
+            case Binding.InteractAlternate:
+                return playerInputActions.Player.InteractAlternate.bindings[0].ToDisplayString();
+            case Binding.Pause:
+                return playerInputActions.Player.Pause.bindings[0].ToDisplayString();
+        }
+    }
 }

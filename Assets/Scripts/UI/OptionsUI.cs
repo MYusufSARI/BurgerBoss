@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class OptionsUI : MonoBehaviour
 {
@@ -94,7 +95,7 @@ public class OptionsUI : MonoBehaviour
     private Transform pressToRebindKeyTransform;
 
 
-
+    private Action onCloseButtonAction;
 
 
     private void Awake()
@@ -116,6 +117,7 @@ public class OptionsUI : MonoBehaviour
         closeButton.onClick.AddListener(() =>
         {
             Hide();
+            onCloseButtonAction();
         });
 
 
@@ -168,8 +170,10 @@ public class OptionsUI : MonoBehaviour
     }
 
 
-    public void Show()
+    public void Show(Action onCloseButtonAction)
     {
+        this.onCloseButtonAction = onCloseButtonAction;
+
         gameObject.SetActive(true);
 
         soundEffectsButton.Select();

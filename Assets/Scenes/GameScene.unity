@@ -595,6 +595,9 @@ MonoBehaviour:
   interactButton: {fileID: 787014502}
   interactAlternateButton: {fileID: 1631196539}
   pauseButton: {fileID: 436962180}
+  gamepadInteractButton: {fileID: 774300792}
+  gamepadInteractAlternateButton: {fileID: 175702956}
+  gamepadPauseButton: {fileID: 988372575}
   moveUpText: {fileID: 1280339990}
   movedownText: {fileID: 666678291}
   moveLeftText: {fileID: 1765988124}
@@ -602,6 +605,9 @@ MonoBehaviour:
   interactText: {fileID: 1748597364}
   interactAlternateText: {fileID: 872205640}
   pauseText: {fileID: 797229511}
+  gamepadInteractText: {fileID: 1582125654}
+  gamepadInteractAlternateText: {fileID: 1263709330}
+  gamepadPauseText: {fileID: 1898227859}
   pressToRebindKeyTransform: {fileID: 1993768708}
 --- !u!4 &65645397 stripped
 Transform:

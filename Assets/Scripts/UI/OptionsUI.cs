@@ -26,6 +26,56 @@ public class OptionsUI : MonoBehaviour
 
 
 
+    [SerializeField]
+    private Button moveUpButton;
+
+    [SerializeField]
+    private Button moveDownButton;
+
+    [SerializeField]
+    private Button moveLeftButton;
+
+    [SerializeField]
+    private Button moveRightButton;
+
+    [SerializeField]
+    private Button interactButton;
+
+    [SerializeField]
+    private Button interactAlternateButton;
+
+    [SerializeField]
+    private Button pauseButton;
+
+
+   
+
+
+    [SerializeField]
+    private TextMeshProUGUI moveUpText;
+
+    [SerializeField]
+    private TextMeshProUGUI movedownText;
+
+    [SerializeField]
+    private TextMeshProUGUI moveLeftText;
+
+    [SerializeField]
+    private TextMeshProUGUI moveRightText;
+
+    [SerializeField]
+    private TextMeshProUGUI interactText;
+
+    [SerializeField]
+    private TextMeshProUGUI interactAlternateText;
+
+    [SerializeField]
+    private TextMeshProUGUI pauseText;
+
+
+
+
+
     private void Awake()
     {
         Instance = this;
@@ -65,14 +115,14 @@ public class OptionsUI : MonoBehaviour
 
     private void UpdateVisual()
     {
-        soundsEffectsText.text = "Sound Effects:" +Mathf.Round(SoundManager.Instance.GetVolume() * 10f);
-        musicText.text = "Music:" +Mathf.Round(MusicManager.Instance.GetVolume() * 10f);
+        soundsEffectsText.text = "Sound Effects:" + Mathf.Round(SoundManager.Instance.GetVolume() * 10f);
+        musicText.text = "Music:" + Mathf.Round(MusicManager.Instance.GetVolume() * 10f);
     }
 
 
     public void Show()
     {
-        gameObject.SetActive(true); 
+        gameObject.SetActive(true);
     }
 
     private void Hide()

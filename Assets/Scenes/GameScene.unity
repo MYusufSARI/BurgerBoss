@@ -591,13 +591,13 @@ MonoBehaviour:
   interactButton: {fileID: 787014502}
   interactAlternateButton: {fileID: 1631196539}
   pauseButton: {fileID: 436962180}
-  moveUpText: {fileID: 1917065740}
-  movedownText: {fileID: 952251272}
-  moveLeftText: {fileID: 877673820}
-  moveRightText: {fileID: 547336273}
-  interactText: {fileID: 274416360}
-  interactAlternateText: {fileID: 1286080210}
-  pauseText: {fileID: 2144170710}
+  moveUpText: {fileID: 1280339990}
+  movedownText: {fileID: 666678291}
+  moveLeftText: {fileID: 1765988124}
+  moveRightText: {fileID: 2074840324}
+  interactText: {fileID: 1748597364}
+  interactAlternateText: {fileID: 872205640}
+  pauseText: {fileID: 797229511}
 --- !u!4 &65645397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4052438110418305660, guid: 62f377ad3383a494aa07c3c216d5f780,

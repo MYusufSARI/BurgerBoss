@@ -22,6 +22,8 @@ public class GameOverUI : MonoBehaviour
             Show();
 
             recipiesDeliveredText.text = DeliveryManager.Instance.GetSuccessfulRecipiesAmount().ToString();
+            Loader.Load(Loader.Scene.MainMenuScene);
+
         }
 
         else

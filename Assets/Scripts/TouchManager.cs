@@ -8,8 +8,7 @@ public class TouchManager : MonoBehaviour
     private const string TOUCH_PRESS = "TouchPress";
     private const string TOUCH_POSITION = "TouchPosition";
 
-    [SerializeField]
-    private Player player;
+
 
     private PlayerInput playerInput;
 
@@ -40,9 +39,5 @@ public class TouchManager : MonoBehaviour
     {
         Vector3 position = Camera.main.ScreenToWorldPoint
                            (touchPositionAction.ReadValue<Vector2>());
-
-        position.z = player.transform.position.z;
-
-        player.transform.position = position;
     }
 }

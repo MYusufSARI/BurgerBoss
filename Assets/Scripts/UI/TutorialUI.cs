@@ -16,6 +16,8 @@ public class TutorialUI : MonoBehaviour
     {
         if (KitchenGameManager.Instance.IsCountDownToStartActive())
         {
+
+
             Hide();
         }
     }
